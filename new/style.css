@@ -1,0 +1,90 @@
+    body{
+        background-color: grey;
+    }
+
+    /* 
+    勝手に生成されるグラフを消すため
+    canvasを使うときはクラスに"canvas"を追加する
+    */
+    canvas{
+        opacity: 0;
+    }
+
+    .canvas{
+        opacity: 1;
+    }
+
+    #video-area{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 10px;
+        width: 100%;
+        height: 100vh;
+        box-sizing: border-box;
+    }
+
+    .video-contents{
+        display: none;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        overflow: hidden;
+    }
+
+    .video-contents video, canvas{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .video-contents video{
+        display: inline-block;
+        z-index: 1;
+    }
+
+    .video-contents canvas{
+        /* 
+            ビデオの上に表示するためz-indexをvideoより高い値に設定する
+            上手く反映されないため、htmlやjavascriptの方で初期から設定する
+        */
+        z-index: 2; 
+        pointer-events: none;
+    }
+
+    .container{
+        /* padding: 30px 50px; */
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #chat-container{
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+    #chat-area{
+        text-align: center;
+    }
+
+    #chats{
+        width: 100%;
+        height: 200px;
+        border: solid 1px black;
+        font-size: 16px;
+        margin-top: 20px;
+        overflow-y: scroll;
+    }
+
+    #output_canvas{
+        z-index: 0;
+    }
+
+    #draw_canvas{
+        z-index:5;
+    }
