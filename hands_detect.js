@@ -128,6 +128,7 @@ const renderLoop = () => {
         // カードを引く処理
         if(selectedFlag){
           selectedFlag = false;
+          countTime = 0;
           turn_count++;
           sendTurn(turn_count);
           dropCard(players[player_num].hand, drawCard.index);
